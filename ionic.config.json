@@ -1,0 +1,7 @@
+{
+  "name": "app-telenor-movile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
