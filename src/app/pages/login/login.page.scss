@@ -1,0 +1,34 @@
+.mainSlide, .mainSlide ion-slide {
+    width: 100%;
+    height: 100%;
+}
+
+img {
+    width: 120px;
+}
+.imagentelenor{
+    width: 500px;
+    // -webkit-filter: hue-rotate(45deg);
+    // filter: hue-rotate(45deg);
+    -webkit-filter: brightness(50%);
+    filter: brightness(50%);
+    -webkit-filter: contrast(108%);
+    filter: contrast(108%);
+    // -webkit-filter: saturate(180%);
+    // filter: saturate(180%);
+  
+}
+
+.pick-avatar {
+    width: 80px;
+    opacity: 0.3;
+}
+
+.pick-avatar-seleccionado {
+    transition: opacity 0.5s linear;
+    opacity: 1 !important;
+}
+.fondo{
+    background: url('/assets/image/telenorback.jpg') no-repeat center center fixed;
+    background-size: cover;
+}

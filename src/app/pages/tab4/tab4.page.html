@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="primary">Lista De Modulos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item detail (click)="abrir1()">
+      <ion-icon name="american-football-outline" slot="start" color="primary"></ion-icon>
+      Modulo 1
+    </ion-item>
+    <ion-item-group *ngIf="isShow == true" class="grupoItems">
+      <ion-item routerLink="">
+        <ion-icon name="logo-apple-appstore" slot="start" color="primary"></ion-icon>
+        SubModulo1
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+  <ion-list>
+    <ion-item detail (click)="abrir2()">
+      <ion-icon name="american-football-outline" slot="start" color="primary"></ion-icon>
+      Modulo 2
+    </ion-item>
+    <ion-item-group *ngIf="isShow1 == true" class="grupoItems">
+      <ion-item routerLink="">
+        <ion-icon name="logo-apple-appstore" slot="start" color="primary"></ion-icon>
+        SubModulo2
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+
+</ion-content>

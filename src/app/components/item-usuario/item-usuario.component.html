@@ -1,0 +1,32 @@
+<div class="usuario">
+  <ion-item lines="none">
+    <ion-avatar slot="start">
+      <img *ngIf="usuario.avatar != null" src="/assets/avatars/{{usuario.avatar}}">
+      <img *ngIf="usuario.avatar == null" src="/assets/avatars/av-1.png">
+    </ion-avatar>
+    <ion-label>
+      <h3>{{usuario.us_nombres|titlecase}} {{usuario.us_apellidos|titlecase}}</h3>
+      <h5>{{usuario.us_email}}</h5>
+    </ion-label>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-label text-wrap>
+      <h5>Usuario: {{usuario.us_login}}</h5>
+      <h5>Teléfono: {{usuario.us_telefono}}</h5>
+      <h5>Dirección: {{usuario.us_direccion}}</h5>
+    </ion-label>
+  </ion-item>
+
+  <ion-item lines="none">
+    <!-- <ion-button slot="end" fill="clear">
+      <ion-icon name="person-add" color="primary"></ion-icon>
+    </ion-button> -->
+    <ion-button slot="end" fill="clear">
+      <ion-icon name="create" color="warning"></ion-icon>
+    </ion-button>
+    <ion-button slot="end" fill="clear">
+      <ion-icon name="trash" color="danger" ></ion-icon>
+    </ion-button>
+  </ion-item>
+</div>
