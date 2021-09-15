@@ -19,11 +19,8 @@ const routes: Routes = [
     pathMatch: 'full',
     redirectTo: 'login'
 
-  },
-  {
-    path: 'tab4',
-    loadChildren: () => import('./pages/tab4/tab4.module').then( m => m.Tab4PageModule)
   }
+
 ];
 @NgModule({
   imports: [

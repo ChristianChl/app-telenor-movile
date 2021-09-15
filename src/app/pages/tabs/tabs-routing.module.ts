@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
-import { Tab4PageModule } from '../tab4/tab4.module';
 
 const routes: Routes = [
   {
@@ -24,6 +23,10 @@ const routes: Routes = [
         path: 'tab4',
         loadChildren: () => import('../tab4/tab4.module').then(m => m.Tab4PageModule)
         
+      },
+      {
+        path: 'listProducto',
+        loadChildren: () => import('../list-producto/list-producto.module').then( m => m.ListProductoPageModule)
       },
       {
         path: '',
