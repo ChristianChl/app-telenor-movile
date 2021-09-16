@@ -19,7 +19,27 @@ const routes: Routes = [
     pathMatch: 'full',
     redirectTo: 'login'
 
+  },  {
+    path: 'form-clien-provee',
+    loadChildren: () => import('./pages/form-clien-provee/form-clien-provee.module').then( m => m.FormClienProveePageModule)
+  },
+  {
+    path: 'form-categoria',
+    loadChildren: () => import('./pages/form-categoria/form-categoria.module').then( m => m.FormCategoriaPageModule)
+  },
+  {
+    path: 'form-marca',
+    loadChildren: () => import('./pages/form-marca/form-marca.module').then( m => m.FormMarcaPageModule)
+  },
+  {
+    path: 'list-marca',
+    loadChildren: () => import('./pages/list-marca/list-marca.module').then( m => m.ListMarcaPageModule)
+  },
+  {
+    path: 'list-categoria',
+    loadChildren: () => import('./pages/list-categoria/list-categoria.module').then( m => m.ListCategoriaPageModule)
   }
+
 
 ];
 @NgModule({

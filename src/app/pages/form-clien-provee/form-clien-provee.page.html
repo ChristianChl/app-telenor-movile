@@ -1,0 +1,77 @@
+<ion-header translucent>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="dismissModal()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Agregar Persona</ion-title>
+    <ion-buttons *ngIf="edit"  slot="end">
+      <ion-button (click)="deletePersona()">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formPersona">
+    <ion-list>
+      <ion-item  id="tipoPersonas">
+        <ion-label  color="primary"  style="width: 30%;" >Tipo Persona</ion-label>
+        <ion-select  formControlName="tipoPersona" [(ngModel)]="persona.fk_id_tipoPersona" [compareWith]="compareWith">
+          <ion-select-option *ngFor="let option of tipoPersona" [value]="option.id_tipoPersona">{{option.tipoper_descripcion}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label  color="primary"  style="width: 30%;">Tipo Doc</ion-label>
+        <ion-select  formControlName="tipoDoc" [(ngModel)]="persona.fk_id_tipoDocumento" [compareWith]="compareWith">
+          <ion-select-option *ngFor="let option of tipoDocumento" [value]="option.id_tipoDocumento">{{option.tipodoc_descripcion}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label  color="primary"  position="stacked">Num. Doc.</ion-label>
+        <ion-input [(ngModel)]="persona.per_numeroDocumento"  type="number" formControlName="numDocProveedor" autocapitalize inputmode="number"></ion-input>
+      </ion-item>
+      
+
+      <ion-item>
+        <ion-label  color="primary"  position="stacked">Razon Social</ion-label>
+        <ion-input [(ngModel)]="persona.per_razonSocial" type="text" formControlName="razonSocialProveedor"  placeholder="Ingresar el nombre de la empresa o la persona ..." autocapitalize inputmode="text"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label   color="primary"  position="stacked">Direccion</ion-label>
+        <ion-input [(ngModel)]="persona.per_direccion"  type="text" formControlName="direccionProveedor" placeholder="Ingresar direccion de la empresa o la persona ..." autocapitalize inputmode="text"></ion-input>
+      </ion-item>
+
+      
+
+      <ion-item>
+        <ion-label   color="primary"  position="stacked">Telefono Celular</ion-label>
+        <ion-input [(ngModel)]="persona.per_celular" type="number" placeholder="Ingresar Num Celular" formControlName="celularProveedor" autocapitalize  inputmode="number" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label  color="primary"  position="stacked">Telefono Fijo</ion-label>
+        <ion-input [(ngModel)]="persona.per_telefonoFijo" type="text" formControlName="telefonoFijoProveedor" placeholder="Ingresar Num Fijo" autocapitalize inputmode="numeric"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label  color="primary"  position="stacked">Correo Electronico</ion-label>
+        <ion-input [(ngModel)]="persona.per_email"  formControlName="correoProveedor" placeholder="Ingresar correo" autocapitalize inputmode="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label  color="primary" >Activo</ion-label>
+        <ion-checkbox slot="start" [(ngModel)]="persona.per_activo" formControlName="activoProveedor" color="primary"></ion-checkbox>
+      </ion-item>
+      
+    </ion-list>
+  </form>
+  <ion-button color="primary" expand="block" (click)="edit ? updatePersona() :saveNewPersona()">
+    Guardar<ion-icon slot="end" name="save-outline" ></ion-icon>
+  </ion-button>
+</ion-content>

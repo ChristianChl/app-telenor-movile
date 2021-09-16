@@ -7,13 +7,19 @@ import { IonicModule } from '@ionic/angular';
 import { ListProductoPageRoutingModule } from './list-producto-routing.module';
 
 import { ListProductoPage } from './list-producto.page';
+import { FormProductoPage } from '../form-producto/form-producto.page';
+import { FormProductoPageModule } from '../form-producto/form-producto.module';
 
 @NgModule({
+  entryComponents:[
+    FormProductoPage
+  ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ListProductoPageRoutingModule
+    ListProductoPageRoutingModule,
+    FormProductoPageModule
   ],
   declarations: [ListProductoPage]
 })
