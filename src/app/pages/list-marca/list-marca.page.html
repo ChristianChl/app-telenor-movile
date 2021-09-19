@@ -3,30 +3,25 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/main/tabs/tab4"></ion-back-button>
     </ion-buttons>
-    <ion-title>Productos </ion-title>
+    <ion-title>Marcas </ion-title>
   </ion-toolbar>
 </ion-header>
 
-
-
-<ion-content >
+<ion-content>
   <ion-list>
 
-    <ion-item *ngFor="let item of producto">
+    <ion-item *ngFor="let item of marca">
       
-        <ion-avatar slot="start"> 
-          <ion-img [src]="item.prod_imagen"></ion-img>
-        </ion-avatar>
-        <ion-label (click)="abrirModalProducto(item.id_Producto)">
-          {{item.prod_modelo}}
+        
+        <ion-label (click)="presentActionSheet(item.id_marca)">
+          {{item.mar_nombre}}
         </ion-label>
         
     </ion-item>
     
   </ion-list>
-
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="danger" (click)="abrirModalProducto('')">
+    <ion-fab-button color="danger" (click)="abrirModalMarca('')">
       <ion-icon name="add-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>

@@ -2,7 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+<<<<<<< HEAD
 import { environment } from '../../environments/environment';
+=======
+import { environment } from 'src/environments/environment';
+>>>>>>> 6a2bb705d815d70f247779d475e01da5301b607b
 import { TipoDocumento } from '../interfaces/TipoDocumento';
 
 @Injectable({

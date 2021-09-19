@@ -25,8 +25,20 @@ const routes: Routes = [
         
       },
       {
-        path: 'listProducto',
+        path: 'listPersonas',
+        loadChildren: () => import('../list-clien-prove/list-clien-prove.module').then( m => m.ListClienProvePageModule)
+      },
+      {
+        path: 'listProductos',
         loadChildren: () => import('../list-producto/list-producto.module').then( m => m.ListProductoPageModule)
+      },
+      {
+        path: 'listMarca',
+        loadChildren: () => import('../list-marca/list-marca.module').then( m => m.ListMarcaPageModule)
+      },
+      {
+        path: 'listCategoria',
+        loadChildren: () => import('../list-categoria/list-categoria.module').then( m => m.ListCategoriaPageModule)
       },
       {
         path: '',

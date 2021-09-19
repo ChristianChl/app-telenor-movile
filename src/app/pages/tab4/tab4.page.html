@@ -19,15 +19,34 @@
   </ion-list>
   <ion-list>
     <ion-item detail (click)="abrir2()">
-      <ion-icon name="american-football-outline" slot="start" color="primary"></ion-icon>
-      Modulo 2
+      <ion-icon name="folder-outline" slot="start" color="primary"></ion-icon>
+      Maestro
     </ion-item>
     <ion-item-group *ngIf="isShow1 == true" class="grupoItems">
-      <ion-item routerLink="">
-        <ion-icon name="logo-apple-appstore" slot="start" color="primary"></ion-icon>
-        SubModulo2
+      <ion-item routerLink="/main/tabs/listMarca">
+        <ion-icon name="documents-outline" slot="start" color="primary"></ion-icon>
+        Marcas
+      </ion-item>
+      <ion-item routerLink="/main/tabs/listCategoria">
+        <ion-icon name="documents-outline" slot="start" color="primary"></ion-icon>
+        Categorias
       </ion-item>
     </ion-item-group>
+  </ion-list>
+  
+  <ion-list>
+    <ion-item detail routerLink="/main/tabs/listProductos">
+      <ion-icon name="clipboard-outline" slot="start" color="primary"></ion-icon>
+      Productos
+    </ion-item>
+    
+  </ion-list>
+  <ion-list>
+    <ion-item detail routerLink="/main/tabs/listPersonas">
+      <ion-icon name="people-outline" slot="start" color="primary"></ion-icon>
+      Lista Client-Prov
+    </ion-item>
+    
   </ion-list>
 
 </ion-content>
