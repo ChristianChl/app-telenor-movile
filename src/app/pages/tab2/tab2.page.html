@@ -1,34 +1,31 @@
-<ion-header no-border>
-  <ion-toolbar>
+<app-header icono ="apps" titulo="Lista-Usuarios" back="false"></app-header>
 
-    <ion-button slot="start" fill="clear">
-      <ion-icon slot="icon-only"  name="apps" color="dark"></ion-icon>
-    </ion-button>
-
-
-    <ion-title>
-      TELENOR PERÚ S.R.L
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-
-
-<ion-content color="light">
+<ion-content color="light" fullscreen>
   <!-- Refresher -->
   <ion-refresher slot="fixed" (ionRefresh)="recargar($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <ion-button class="miBotton" mode="ios">
+  <!-- <ion-button class="miBotton" mode="ios">
     Nuevo 
     <ion-icon name="person-add" slot="end"></ion-icon>
-  </ion-button>
+  </ion-button> -->
 
   <!-- Usuarios -->
   <app-list-usuario [usuarios]="usuarios"></app-list-usuario>
 
-  <!-- Infiniti Scroll -->
+  <!-- Fab -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-list side="top">
+      <ion-fab-button color="primary" (click)="showModalUsuario()"><ion-icon name="person-add"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+
+  </ion-fab>
+
 
 
 </ion-content>

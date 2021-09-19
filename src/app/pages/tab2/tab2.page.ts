@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../services/usuario.service';
 import { Usuarios } from '../../interfaces/Usuario';
+import { ModalController } from '@ionic/angular';
+import { FromUsuariosPage } from '../from-usuarios/from-usuarios.page';
 
 @Component({
   selector: 'app-tab2',
@@ -12,7 +14,8 @@ export class Tab2Page implements OnInit {
   usuarios: Usuarios[] = [];
   collusuario: any = [];
 
-  constructor(private usuariosService: UsuarioService) {}
+  constructor(private usuariosService: UsuarioService,
+              private modalCtrl: ModalController) {}
 
   ngOnInit(): void{
 
@@ -32,6 +35,13 @@ export class Tab2Page implements OnInit {
     this.collusuario = [];
     this.getUsuarios()
     event.target.complete();
+  }
+
+ async showModalUsuario(){
+    const modal = await this.modalCtrl.create({
+      component: FromUsuariosPage,
+    });
+   await modal.present();
   }
 
 }

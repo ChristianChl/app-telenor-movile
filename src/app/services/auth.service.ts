@@ -17,6 +17,12 @@ export class AuthService {
   get usuario(){
     return { ...this._usuario };
   }
+  getUsuario(){
+    if(!this.usuario.uid){
+      this.validarToken();
+    }
+    return { ...this._usuario };
+  }
 
   constructor(private http: HttpClient,
               private storage: Storage) { }

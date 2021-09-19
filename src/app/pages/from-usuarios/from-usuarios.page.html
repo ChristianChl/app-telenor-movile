@@ -1,0 +1,162 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="cancelar()" color="primary">
+        <ion-icon color="tertiary" slot="icon-only" name="arrow-back-outline" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{(idUsuario)? (usuarios.us_nombres): 'Usuario'}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-row class="top-20">
+    
+    <ion-col size="12" class="ion-text-center">
+      <!-- <img src="assets/avatars/av-8.png" class="img-avatar"> -->
+      <img *ngIf="usuarios.avatar != null && usuarios.avatar != '' " src="/assets/avatars/{{usuarios.avatar}}" class="img-avatar">
+      <img *ngIf="usuarios.avatar == null || usuarios.avatar == '' " src="/assets/avatars/av-1.png" class="img-avatar">
+    </ion-col>
+
+  </ion-row>
+
+  <ion-row class="top-20">
+    <ion-col size="12" class="ion-text-center">
+      <ion-label>
+        <h1>{{(idUsuario)? 'Editar': 'Agregar'}} Usuario</h1>
+      </ion-label>
+    </ion-col>
+  </ion-row>
+
+
+  <app-avatar-selector (avatarSel)= "usuarios.avatar = $event" [avatarActual] = "usuarios.avatar" [idUsuario] = "idUsuario" ></app-avatar-selector>
+
+  <form autocomplete="off" [formGroup]="formUsuarios">
+      <ion-row class="ion-padding">
+        <ion-col>
+          
+            <ion-list>
+
+              <ion-item>
+                <ion-label position="floating">Apellidos:</ion-label>
+                <ion-input name="apellidos" placeholder="Apellidos del Usuario" type="text" formControlName="us_apellidos" required></ion-input>
+                <ion-icon name="document-text-outline" slot="end"></ion-icon>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Nombres:</ion-label>
+                <ion-input name="nombres" placeholder="Nombres del Usuario" type="text" formControlName="us_nombres" required></ion-input>
+                <ion-icon name="document-text-outline" slot="end"></ion-icon>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Dirección:</ion-label>
+                <ion-input name="direccion" placeholder="Dirección del Usuario" type="text" formControlName="us_direccion" required></ion-input>
+                <ion-icon name="location-outline" slot="end"></ion-icon>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Tipo Doc.</ion-label>
+                <ion-select mode="ios" name="tipoDocumento" formControlName="fk_id_tipoDocumento" placeholder="seleccione..">
+                  <ion-select-option *ngFor="let option of tipoDocumentos" [value]="option.id_tipoDocumento">{{option.tipodoc_descripcion}}</ion-select-option>
+                </ion-select>
+                <ion-button  color="tertiary" shape="round" (click)="showDocumento()">
+                  <ion-icon name="add-circle" slot="start"></ion-icon>
+                  Documento
+                </ion-button>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">N° Documento:</ion-label>
+                <ion-input name="numeroDocumento" placeholder="Número del Documento" type="number" formControlName="us_numeroDocumento" required></ion-input>
+                <ion-icon name="card-outline" slot="end"></ion-icon>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Email:</ion-label>
+                <ion-input name="email" placeholder="Email" type="email" formControlName="us_email" required></ion-input>
+                <ion-icon name="mail-outline" slot="end"></ion-icon>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Teléfono:</ion-label>
+                <ion-input name="telefono" placeholder="Teléfono" type="number" formControlName="us_telefono" required></ion-input>
+                <ion-icon name="call-outline" slot="end"></ion-icon>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Usuario:</ion-label>
+                <ion-input name="usuario" placeholder="Login del Usuario" type="text" formControlName="us_login" required></ion-input>
+                <ion-icon name="person-outline" slot="end"></ion-icon>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Clave:</ion-label>
+                <ion-input name="clave" placeholder="Clave del Usuario" type="password" formControlName="us_clave" required></ion-input>
+                <ion-icon name="lock-closed-outline" slot="end"></ion-icon>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Perfil</ion-label>
+                <ion-select mode="ios" name="perfil" formControlName="fk_id_perfil" placeholder="seleccione..">
+                  <ion-select-option *ngFor="let option of perfil" [value]="option.id_perfil">{{option.perf_nombre}}</ion-select-option>
+                </ion-select>
+                <ion-button color="tertiary" shape="round" (click)="showPerfil()">
+                  <ion-icon name="add-circle" slot="start"></ion-icon>
+                  Perfil
+                </ion-button>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Fecha Registro:</ion-label>
+                <ion-datetime displayFormat="DD/MM/YYYY" name="fechaRegistro" formControlName="us_fechaRegistro" ></ion-datetime>
+              </ion-item>
+              
+                <ion-item>
+                  <ion-label>Activo</ion-label>
+                  <ion-toggle color="tertiary" formControlName="us_activo"  checked = "us_activo"  name="activo"></ion-toggle>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label>Permisos Web</ion-label>
+                  <ion-select class="custom-options" multiple="true" name="permisosWeb" formControlName="us_permiso"  placeholder="seleccione..">
+                    <ion-select-option *ngFor="let option of permiso" [value]="option.perm_nombre">{{option.perm_nombre}}</ion-select-option>
+                  </ion-select>
+                </ion-item>
+
+              
+              <!-- <ion-item>
+                <ion-label>Email</ion-label>
+                <ion-input name="email"
+                           type="email"
+                           required></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Nombre</ion-label>
+                <ion-input name="nombre"
+                           type="text"
+                           required></ion-input>
+              </ion-item> -->
+
+
+            </ion-list>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-button 
+                      color="tertiary"
+                      shape="round"
+                      (click)="edit? updateUsuario() : guardar()">
+          Guardar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    
+  </form>
+
+
+</ion-content>

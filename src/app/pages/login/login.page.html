@@ -41,18 +41,24 @@
                 <ion-list>
                   
                   <ion-item>
-                    <ion-label>Usuario:</ion-label>
+                    <ion-label>
+                      <ion-icon name="person-outline" item-start class="text-primary"></ion-icon>
+                      Usuario:</ion-label>
                     <ion-input name="email"
                                 type="email"
+                                placeholder="Ingrese su usuario*"
                                 formControlName="us_login"
                                 required>
                               </ion-input>
                   </ion-item>
 
                   <ion-item>
-                    <ion-label>Password:</ion-label>
+                    <ion-label>
+                      <ion-icon name="key-outline" item-start class="text-primary"></ion-icon>
+                      Password:</ion-label>
                     <ion-input name="password"
                                 type="password"
+                                placeholder="Ingrese su contraseña*"
                                 formControlName="us_clave"
                                 required></ion-input>
                   </ion-item>
