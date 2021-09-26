@@ -1,1 +1,17 @@
 <app-header icono ="apps" titulo="TELENOR PERÚ S.R.L" back="false"></app-header>
+<ion-content class="ion-padding">
+  <div>
+    <div>
+      <div style="display: block">
+        <canvas baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          >
+        </canvas>
+      </div>
+      <button mat-button mat-raised-button color="primary" (click)="randomize()">Update</button>
+    </div>
+  </div>
+</ion-content>
