@@ -1,7 +1,7 @@
 <ion-header translucent>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-button (click)="dismissModal()">
+      <ion-button (click)="dismissModal('cerrado')">
         <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -19,14 +19,14 @@
     <ion-list>
       <ion-item  id="tipoPersonas">
         <ion-label  color="primary"  style="width: 30%;" >Tipo Persona</ion-label>
-        <ion-select  formControlName="tipoPersona" [(ngModel)]="persona.fk_id_tipoPersona" [compareWith]="compareWith">
+        <ion-select  formControlName="tipoPersona" [(ngModel)]="persona.fk_id_tipoPersona" >
           <ion-select-option *ngFor="let option of tipoPersona" [value]="option.id_tipoPersona">{{option.tipoper_descripcion}}</ion-select-option>
         </ion-select>
       </ion-item>
 
       <ion-item>
         <ion-label  color="primary"  style="width: 30%;">Tipo Doc</ion-label>
-        <ion-select  formControlName="tipoDoc" [(ngModel)]="persona.fk_id_tipoDocumento" [compareWith]="compareWith">
+        <ion-select  formControlName="tipoDoc" [(ngModel)]="persona.fk_id_tipoDocumento" >
           <ion-select-option *ngFor="let option of tipoDocumento" [value]="option.id_tipoDocumento">{{option.tipodoc_descripcion}}</ion-select-option>
         </ion-select>
       </ion-item>

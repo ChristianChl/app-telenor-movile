@@ -337,7 +337,7 @@ export class FormProductoPage implements OnInit {
       this.productoService.updateProducto(this.idProducto, this.producto)
       .subscribe(
         async ok => {
-          if (this.formProducto.valid) {
+          if (ok == true && this.formProducto.valid) {
             const alert = await this.alertController.create({
               cssClass: 'my-custom-class',
               header: 'Exito',

@@ -1,0 +1,6 @@
+{
+	"appId": "com.christianroberthchaponan.telenorappdev",
+	"appName": "telenorApp",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

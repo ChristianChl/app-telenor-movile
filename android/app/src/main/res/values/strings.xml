@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">telenorApp</string>
+    <string name="title_activity_main">telenorApp</string>
+    <string name="package_name">com.christianroberthchaponan.telenorappdev</string>
+    <string name="custom_url_scheme">com.christianroberthchaponan.telenorappdev</string>
+</resources>

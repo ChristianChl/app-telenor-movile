@@ -2,7 +2,7 @@
 <ion-header translucent>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-button (click)="dismissModal()">
+      <ion-button (click)="dismissModal('cerrado')">
         <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -41,7 +41,7 @@
 
       <ion-item>
         <ion-label style="width: 30%;">Categoria</ion-label>
-        <ion-select [(ngModel)]="producto.fk_id_categoria" formControlName="categoriaProducto"  [compareWith]="compareWith">
+        <ion-select [(ngModel)]="producto.fk_id_categoria" formControlName="categoriaProducto"  >
           <ion-select-option *ngFor="let option of categoria" [value]="option.id_categoria">{{option.cat_nombre}}</ion-select-option>
         </ion-select>
         <ion-buttons style="margin-left:10px;">
@@ -51,7 +51,7 @@
 
       <ion-item>
         <ion-label>Marca</ion-label>
-        <ion-select  [(ngModel)]="producto.fk_id_marca" formControlName="marcaProducto"  [compareWith]="compareWith">
+        <ion-select  [(ngModel)]="producto.fk_id_marca" formControlName="marcaProducto"  >
           <ion-select-option *ngFor="let option of marca" [value]="option.id_marca">{{option.mar_nombre}}</ion-select-option>
         </ion-select>
         <ion-buttons style="margin-left:10px;">
@@ -61,14 +61,14 @@
 
       <ion-item>
         <ion-label>U.Medida</ion-label>
-        <ion-select [(ngModel)]="producto.fk_id_medida" formControlName="medidaProducto" [compareWith]="compareWith">
+        <ion-select [(ngModel)]="producto.fk_id_medida" formControlName="medidaProducto" >
           <ion-select-option *ngFor="let option of medida" [value]="option.id_medida">{{option.med_unidad}}</ion-select-option>
         </ion-select>
       </ion-item>
 
       <ion-item>
         <ion-label>Tipo</ion-label>
-        <ion-select [(ngModel)]="producto.fk_id_tipo" formControlName="tipoProducto" [compareWith]="compareWith">
+        <ion-select [(ngModel)]="producto.fk_id_tipo" formControlName="tipoProducto" >
           <ion-select-option *ngFor="let option of tipoProducto" [value]="option.id_tipo">{{option.tip_nombre}}</ion-select-option>
         </ion-select>
         

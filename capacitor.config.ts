@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'app-telenor-movile',
+  appId: 'com.christianroberthchaponan.telenorappdev',
+  appName: 'telenorApp',
   webDir: 'www',
   bundledWebRuntime: false
 };
